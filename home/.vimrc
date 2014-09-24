@@ -9,8 +9,6 @@ set nowrap                    " dont wrap text
 set autoread                  " Set to auto read when a file is changed from the outside
 set expandtab                 " !tabs
 set so=10                     " Set 10 lines to the cursor - when moving vertically using j/k
-set directory=~/.vim-swap//   " Keep backup/swap files here
-set backupdir=~/.vim-backup// " Keep backup/swap files here
 set t_Co=256                  " Color scheme
 set number                    " Line Numbers
 set numberwidth=5             " Line Numbers
@@ -119,7 +117,3 @@ nmap <leader>rf    :call ScreenShellSend("rf <C-R>=expand("<cWORD>")<CR>")<CR>
 " git-flow hotfix
 nmap <leader>hfs   :call ScreenShellSend("hfs <C-R>=expand("<cWORD>")<CR>")<CR>
 nmap <leader>hff   :call ScreenShellSend("hff <C-R>=expand("<cWORD>")<CR>")<CR>
-
-" These are configs for dbext
-let g:dbext_default_profile_omen_production = 'type=MYSQL:user=omen_production:passwd=@askb:dbname=omen_production:host=parser'
-let g:dbext_default_profile_omen_dev        = 'type=MYSQL:user=root:dbname=omen_development:host=localhost'
