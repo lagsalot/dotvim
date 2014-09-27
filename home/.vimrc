@@ -1,31 +1,26 @@
-execute pathogen#infect()
+call plug#begin('~/.vim/plugged')
+
+Plug 'junegunn/seoul256.vim'
+Plug 'junegunn/vim-easy-align'
+Plug 'bling/vim-airline'
+Plug 'https://github.com/junegunn/vim-github-dashboard.git'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-sensible'
+
+" On-demand loading
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+
+call plug#end()
+
 set nocompatible              " new school
 filetype plugin indent on
 
-set history=50                " keep 50 lines of command line history
-set ruler                     " show the cursor position all the time
-set showcmd                   " display incomplete commands
-set nowrap                    " dont wrap text
-set autoread                  " Set to auto read when a file is changed from the outside
-set expandtab                 " !tabs
-set so=10                     " Set 10 lines to the cursor - when moving vertically using j/k
-set t_Co=256                  " Color scheme
-set number                    " Line Numbers
-set numberwidth=5             " Line Numbers
-set ignorecase                " Ignore case when searching
-set smartcase                 " Be smart about it
-set hlsearch                  " Highlight search results
-set incsearch                 " Makes search act like search in modern browsers
-set showmatch                 " Show matching brackets when text indicator is over them
-set foldenable                " folding
-set foldmethod=syntax         " folding
-set foldlevel=1               " folding
-set updatetime=1              " used with CursorHold to check for modified files
+" set updatetime=1              " used with CursorHold to check for modified files
 
-set completeopt=longest,menu        " Tab completion options (only complete to the longest unambiguous match, and show a menu)
-set wildmode=list:longest,list:full " Tab completion options (only complete to the longest unambiguous match, and show a menu)
-
-syntax enable                 " Pretty code
+" set completeopt=longest,menu        " Tab completion options (only complete to the longest unambiguous match, and show a menu)
+" set wildmode=list:longest,list:full " Tab completion options (only complete to the longest unambiguous match, and show a menu)
 
 " Use ack for searching if installed.  p.s. install it
 if executable("ack") 
