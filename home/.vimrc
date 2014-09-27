@@ -8,24 +8,35 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-cucumber'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-commentary'
+Plug 'kien/ctrlp.vim'
+Plug 'scrooloose/syntastic'
+Plug 'Valloric/YouCompleteMe'
+Plug 'vim-ruby/vim-ruby'
+Plug 'slim-template/vim-slim'
+Plug 'skalnik/vim-vroom'
+Plug 'edkolev/tmuxline.vim'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'vim-scripts/dbext.vim'
+Plug 'aliva/vim-fish'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 call plug#end()
 
-set nocompatible              " new school
+" Typical Config Section
 filetype plugin indent on
 
-" set updatetime=1              " used with CursorHold to check for modified files
+set nocompatible
+set number
+set updatetime=1              " used with CursorHold to check for modified files
 
 " set completeopt=longest,menu        " Tab completion options (only complete to the longest unambiguous match, and show a menu)
 " set wildmode=list:longest,list:full " Tab completion options (only complete to the longest unambiguous match, and show a menu)
-
-" Use ack for searching if installed.  p.s. install it
-if executable("ack") 
-  set grepprg=ack\ -H\ --nogroup\ --nocolor 
-endif 
 
 " Move between windows with CTRL+ regular j,k,h,l motion keys
 map <C-J> <C-W>j<bar>
@@ -33,17 +44,16 @@ map <C-K> <C-W>k<bar>
 map <c-h> <c-w>h<bar>
 map <c-l> <c-w>l<bar>
 
-" ScreenShell
-let g:ScreenImpl               = 'Tmux'
-let g:ScreenShellTmuxInitArgs  = '-2'
-let g:ScreenShellQuitOnVimExit = 1
 " CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_show_hidden = 1
+
 " Gist-vim
 let g:gist_clip_command = 'pbcopy'
 let g:gist_show_privates = 1
 let g:gist_post_private = 1
+
 " GPG-vim
 let g:GPGPreferArmor = 1
 
@@ -57,7 +67,7 @@ au BufRead * checktime
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
 " Leader
-let mapleader   = ","
+let mapleader = ","
 let g:mapleader = ","
 
 " Shortcuts
@@ -72,16 +82,6 @@ map  <Leader>cn :cnext<CR>
 map  <Leader>ti  :!tig<CR>
 map  <Leader>gw  :Gwrite<CR>
 map  <Leader>gwc :Gwrite<CR>:Gcommit<CR>
-
-" Comment Out Code 
-map <leader># :s/^/#/   <CR>:nohlsearch<CR>
-map <leader>/ :s/^/\/\//<CR>:nohlsearch<CR>
-map <leader>> :s/^/> /  <CR>:nohlsearch<CR>
-map <leader>" :s/^/\"/  <CR>:nohlsearch<CR>
-map <leader>% :s/^/%/   <CR>:nohlsearch<CR>
-map <leader>! :s/^/!/   <CR>:nohlsearch<CR>
-map <leader>; :s/^/;/   <CR>:nohlsearch<CR>
-map <leader>- :s/^/--/  <CR>:nohlsearch<CR>
 
 " Clear Code Comments
 map <leader>c :s/^\/\/\\|^--\\|^> \\|^[#"%!;]//<CR>:nohlsearch<CR>
