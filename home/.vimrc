@@ -1,4 +1,4 @@
-call plug#begin('~/.vim/pluggedin')
+call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/vim-easy-align'
@@ -28,8 +28,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 call plug#end()
 
-" Typical Config Section
-filetype plugin indent on
+set shell=/bin/sh
 
 set nocompatible
 set number
